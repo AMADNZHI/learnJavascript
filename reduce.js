@@ -1,23 +1,23 @@
 var methods = ['map', 'forEach', 'filter', 'reduce'];
 
-function funcLength(previousValue, currentItem, index, arr) {
+function funcSum(previousValue, currentItem, index, arr) {
     return previousValue + currentItem;
 };
 
-function mapFunc(arr, func) {
+function reduceFunc(arr, func) {
   if (Array.isArray(arr) && (typeof func === 'function')) {
     var arrayCopy = arr.slice();
-    var arrayLength = [];
+    var arraySum = [];
     var previousValue = '';
     for (var i = 0; i < arrayCopy.length; i++) { 
       var previousValue = func(previousValue, arrayCopy[i], i , arrayCopy);
-      arrayLength = previousValue;
+      arraySum = previousValue;
     }
     return arrayLength;
   }
     console.log('Не подходящий тип аргументов');
 }
 
-console.log(mapFunc(methods, funcLength));
-var newArrayLength = methods.reduce(funcLength, '');
-console.log(newArrayLength);
+console.log(mapFunc(methods, funcSum));
+var newArraySum = methods.reduce(funcSum, '');
+console.log(newArraySum);

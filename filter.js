@@ -4,7 +4,7 @@ function funcLength(elem, i , array) {
     return elem.length > 3;
 };
 
-function mapFunc(arr, func) {
+function filterFunc(arr, func) {
   if (Array.isArray(arr) && (typeof func === 'function')) {
     var arrayCopy = arr.slice();
     var arrayLength = [];
@@ -18,6 +18,6 @@ function mapFunc(arr, func) {
     console.log('Не подходящий тип аргументов');
 }
 
-console.log(mapFunc(methods, funcLength));
+console.log(mapFilter(methods, funcLength));
 var newArrayLength = methods.filter(funcLength);
 console.log(newArrayLength);
