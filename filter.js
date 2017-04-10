@@ -1,7 +1,7 @@
 var methods = ['map', 'forEach', 'filter', 'reduce'];
 
 function funcLength(elem, i , array) {
-    return elem.length;
+    return elem.length > 3;
 };
 
 function mapFunc(arr, func) {
@@ -9,7 +9,9 @@ function mapFunc(arr, func) {
     var arrayCopy = arr.slice();
     var arrayLength = [];
     for (var i = 0; i < arrayCopy.length; i++) { 
-      arrayLength.push(func(arrayCopy[i], i , arrayCopy));  
+      if (func(arrayCopy[i], i , arrayCopy)) {
+        arrayLength.push(arrayCopy[i]);  
+      }
     }
     return arrayLength;
   }
@@ -17,5 +19,5 @@ function mapFunc(arr, func) {
 }
 
 console.log(mapFunc(methods, funcLength));
-var newArrayLength = methods.map(funcLength);
+var newArrayLength = methods.filter(funcLength);
 console.log(newArrayLength);
