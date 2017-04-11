@@ -4,20 +4,19 @@ function funcSum(previousValue, currentItem, index, arr) {
     return previousValue + currentItem;
 };
 
-function reduceFunc(arr, func) {
+function reduceFunc(arr, func, previousValue) {
   if (Array.isArray(arr) && (typeof func === 'function')) {
     var arrayCopy = arr.slice();
-    var arraySum = [];
-    var previousValue = '';
+    var sum;
     for (var i = 0; i < arrayCopy.length; i++) { 
       var previousValue = func(previousValue, arrayCopy[i], i , arrayCopy);
-      arraySum = previousValue;
+      sum = previousValue;
     }
-    return arrayLength;
+    return sum;
   }
     console.log('Не подходящий тип аргументов');
 }
 
-console.log(mapFunc(methods, funcSum));
-var newArraySum = methods.reduce(funcSum, '');
-console.log(newArraySum);
+console.log(reduceFunc(methods, funcSum, ''));
+var newSum = methods.reduce(funcSum);
+console.log(newSum);

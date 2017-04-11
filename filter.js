@@ -7,17 +7,17 @@ function funcLength(elem, i , array) {
 function filterFunc(arr, func) {
   if (Array.isArray(arr) && (typeof func === 'function')) {
     var arrayCopy = arr.slice();
-    var arrayLength = [];
+    var output = [];
     for (var i = 0; i < arrayCopy.length; i++) { 
       if (func(arrayCopy[i], i , arrayCopy)) {
-        arrayLength.push(arrayCopy[i]);  
+        output.push(arrayCopy[i]);  
       }
     }
-    return arrayLength;
+    return output;
   }
     console.log('Не подходящий тип аргументов');
 }
 
-console.log(mapFilter(methods, funcLength));
-var newArrayLength = methods.filter(funcLength);
-console.log(newArrayLength);
+console.log(filterFunc(methods, funcLength));
+var newArrayLengths = methods.filter(funcLength);
+console.log(newArrayLengths);
