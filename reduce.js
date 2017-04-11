@@ -7,12 +7,10 @@ function funcSum(previousValue, currentItem, index, arr) {
 function reduceFunc(arr, func, previousValue) {
   if (Array.isArray(arr) && (typeof func === 'function')) {
     var arrayCopy = arr.slice();
-    var sum;
     for (var i = 0; i < arrayCopy.length; i++) { 
-      var previousValue = func(previousValue, arrayCopy[i], i , arrayCopy);
-      sum = previousValue;
+      previousValue = func(previousValue, arrayCopy[i], i , arrayCopy);
     }
-    return sum;
+    return previousValue;
   }
     console.log('Не подходящий тип аргументов');
 }
