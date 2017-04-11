@@ -4,14 +4,23 @@ function funcSum(previousValue, currentItem, index, arr) {
     return previousValue + currentItem;
 };
 
-function reduceFunc(arr, func) {
+function reduceFunc(arr, func, previousValue) {
   if (Array.isArray(arr) && (typeof func === 'function')) {
-    var arrayCopy = arr.slice();
-    var previousValue = arrayCopy[0];
-    for (var i = 1; i < arrayCopy.length; i++) { 
-      previousValue = func(previousValue, arrayCopy[i], i , arrayCopy);
+    if (previousValue === undefined) {
+      previousValue = arr[0];
+      arrayCopy = arr.slice(1);
+      for (var i = 0; i < arrayCopy.length; i++) { 
+        previousValue = func(previousValue, arrayCopy[i], i , arrayCopy);
+      }
+      return previousValue;
     }
-    return previousValue;
+    else {
+      arrayCopy = arr.slice();
+      for (var i = 0; i < arrayCopy.length; i++) { 
+        previousValue = func(previousValue, arrayCopy[i], i , arrayCopy);
+      }
+      return previousValue;
+    }
   }
     console.log('Не подходящий тип аргументов');
 }
