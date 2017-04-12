@@ -13,9 +13,14 @@ function mapFunc(arr, func) {
     }
     return output;
   }
-    console.log('Не подходящий тип аргументов');
+    throw new Error("Некорректный тип аргументов");
 }
 
-console.log(mapFunc(methods, funcLength));
+try {
+    console.log(mapFunc(methods, funcLength));
+} catch(error) {
+    console.log(error.name + ': ' + error.message);
+}
+
 var newArrayLengths = methods.map(funcLength);
 console.log(newArrayLengths);

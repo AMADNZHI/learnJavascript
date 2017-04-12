@@ -15,9 +15,14 @@ function filterFunc(arr, func) {
     }
     return output;
   }
-    console.log('Не подходящий тип аргументов');
+    throw new Error("Некорректный тип аргументов");
 }
 
-console.log(filterFunc(methods, funcLength));
+try {
+    console.log(filterFunc(methods, funcLength));
+} catch(error) {
+    console.log(error.name + ': ' + error.message);
+}
+
 var newArrayLengths = methods.filter(funcLength);
 console.log(newArrayLengths);

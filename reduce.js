@@ -19,10 +19,15 @@ function reduceFunc(arr, func, previousValue) {
     }
     return previousValue;
   }
-    console.log('Не подходящий тип аргументов');
+    throw new Error("Некорректный тип аргументов");
 }
 
-console.log(reduceFunc(methods, funcSum));
+try {
+    console.log(reduceFunc(methods, funcSum));
+} catch(error) {
+    console.log(error.name + ': ' + error.message);
+}
+
 var newSum = methods.reduce(funcSum);
 console.log(newSum);
 
