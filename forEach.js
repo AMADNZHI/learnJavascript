@@ -11,10 +11,15 @@ function forEachFunc(arr, func) {
       func(arr[i], i , arr);
     }
   }
-  else {
-    console.log('Не подходящий тип аргументов');
-  }
+    else {
+      throw new Error("Некорректный тип аргументов");
+    }
 }
 
-forEachFunc(methods, message);
+try {
+    forEachFunc(methods, message);
+} catch(error) {
+    console.log(error.name + ': ' + error.message);
+}
+
 methods.forEach(message);
