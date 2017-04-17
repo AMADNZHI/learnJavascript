@@ -8,11 +8,14 @@ function sortFunc (elem) {
 
 function createObjValue (array, obj){
    for (var i = 0; i < array.length; i++) {
-      obj[sortFunc(array[i])] = [];
+     if (sortFunc(array[i]) in obj) {
+         obj[sortFunc(array[i])].push(array[i]);
+     }
+     else {
+       obj[sortFunc(array[i])] = [];
+       obj[sortFunc(array[i])].push(array[i]);
+     } 
    }
-   for (var i = 0; i < array.length; i++) {
-      obj[sortFunc(array[i])].push(array[i]);
-  }
 }
 
 function pushValueArray (obj) {
@@ -23,3 +26,5 @@ createObjValue(arr, dict);
 pushValueArray(dict);
 
 console.log(result);
+
+
