@@ -3,8 +3,7 @@ var dict = {};
 var result = [];
 
 function sortFunc (elem) {
-   var sorted;
-   return sorted = elem.split('').sort().join(''); 
+   return elem.split('').sort().join(''); 
 }
 
 function createObjValue (array, obj){
