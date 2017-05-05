@@ -1,0 +1,7 @@
+Для проверки типа на массив есть специальный метод: Array.isArray(arr). Он возвращает true только если arr – массив:
+
+ alert( Array.isArray([1,2,3]) ); // true
+alert( Array.isArray("not array")); // false
+Но этот метод – единственный в своём роде.
+
+Других аналогичных, типа Object.isObject, Date.isDate – нет.
